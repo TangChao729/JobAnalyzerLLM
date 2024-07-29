@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, Response
 from flask_restful import Api, Resource
 from flask_cors import CORS
 from marqo_agent import MarqoAgent
 from gpt_agent import GPTAgent
+import json
 
 # Initialize the Marqo agent
 print("Initializing Marqo agent")
@@ -35,21 +36,14 @@ class Search(Resource):
         # Get the query from the request
         description = request.get_json().get('query').get('description')
 
-        print("--debugging: description ", type(description), description)
+        # print("--debugging: description ", type(description), description)
 
         # Perform search on Marqo index
         try:
             search_results = marqoAgent.search(query=description)
-            return jsonify(search_results)
+            return Response(json.dumps(search_results), status=200, mimetype='application/json')
         except Exception as e:
-            return jsonify({"error": str(e)})
-        
-        # TODO: adding try-except block, and return Response object with status code and mimetype
-        # try:
-        #     search_results = marqo_agent.mq.index("kaggle_job_listing").search(query)
-        #     return Response(json.dumps(search_results), status=200, mimetype='application/json')
-        # except Exception as e:
-        #     return Response(json.dumps({"error": str(e)}), status=500, mimetype='application/json')
+            return Response(json.dumps({"error": str(e)}), status=500, mimetype='application/json')
 
 ''' Compare endpoint.
 Input: JSON object with user_info and similar_job_description fields.
@@ -58,6 +52,14 @@ Output: JSON object with the response from the GPT agent.
 class Compare(Resource):
     def post(self):
         # Get the user_info and similar_job_description from the request
+
+        # debugging the request
+        # print("--debugging: request received")
+        # print("--debugging: user_info", type(request.get_json()), request.get_json().keys())
+        # print("--debugging: user_info", len(request.get_json().get('user_info')))
+        # print("--debugging: user_info", request.get_json().get('user_info')[:100])
+        # print("--debugging: similar_job_description", len(request.get_json().get('similar_job_description')))
+        # print("--debugging: similar_job_description", request.get_json().get('similar_job_description')[:100])
         user_info = request.get_json().get('user_info')
         similar_job_description = request.get_json().get('similar_job_description')
 
@@ -70,6 +72,7 @@ class Compare(Resource):
 
 # Add the search endpoint to the API
 api.add_resource(Search, '/search')
+api.add_resource(Compare, '/compare')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8888)

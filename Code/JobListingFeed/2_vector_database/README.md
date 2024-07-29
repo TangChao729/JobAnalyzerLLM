@@ -11,17 +11,20 @@
    3) install nvidia container toolkit
    4) configure docker
    5) add user to docker group
-   
-2. Pull the docker image and run with docker commands:
+
+2. Create docker storage volume for the database:
    '''
-    docker rm -f marqo
-    docker pull marqoai/marqo:latest
-    docker run --rm --gpus all --name marqo -it -p 8882:8882 marqoai/marqo:latest
+   docker volume create marqo_data
+   '''
+   
+3. Pull the docker image and run with docker commands:
+   '''
+   docker run --gpus all --name marqo -p 8882:8882 -v marqo_data:/opt/vespa marqoai/marqo:latest
    '''
    After service running, you should see prompt message indicate service is running.
 
 
-3. Check container status:
+4. Check container status:
    '''
    docker ps
    sudo docker exec -it {CONTAINERID} /bin/bash
@@ -29,13 +32,13 @@
    '''
    If using GPU, you should see the GPU information.
 
-4. To access the database, use your choice of SDK
+5. To access the database, use your choice of SDK
     - Python SDK:
     
     pip install marqo
     '''
 
-5. Sample code
+6. Sample code
    '''
    import marqo
 

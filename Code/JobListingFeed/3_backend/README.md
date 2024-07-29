@@ -20,10 +20,8 @@
 ### backend code structure
 
 1. `app.py`: main file for the backend server.
-2. `marqo.py`: marqo database connection and query processing.
-3. `openai.py`: OpenAI API call.
-4. `job_listing.py`: job listing fetching and processing.
-5. `utils.py`: utility functions.
-6. `config.py`: configuration file.
-7. `requirements.txt`: python package requirements.
-8. `README.md`: backend documentation.
+2. `marqo_agent.py`: handling marqo database query.
+3. `openai_agent.py`: handling OpenAI API call.
+4. `config.py`: configuration file.
+5. `requirements.txt`: python package requirements.
+6. `README.md`: backend documentation.
