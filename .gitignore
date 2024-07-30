@@ -2,3 +2,5 @@
 Data/job_listing_kaggle_dataset/*
 Local_data/*
 
+# Ignore node_modules
+node_modules
