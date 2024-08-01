@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: taytang91/jal-frontend-alpha0
+    ports:
+      - "8880:8880"
+    environment:
+      - REACT_APP_API_URL=http://backend:8888
+
+  backend:
+    image: taytang91/jal-backend-alpha0
+    ports:
+      - "8888:8888"
+    environment:
+      - DATABASE_PORT=http://local:8882
+      - DATABASE_INDEX=kaggle_job_listing
+
+networks:
+  default:
+    driver: bridge

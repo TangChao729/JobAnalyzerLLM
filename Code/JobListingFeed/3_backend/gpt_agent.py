@@ -1,7 +1,7 @@
 from openai import OpenAI
 class GPTAgent:
     def __init__(self):
-        self.default_key_path = '../../../Local_data/gpt_key.txt'
+        self.default_key_path = './credentials/gpt_key.txt'
         try:
             self.reset_keys()
         except Exception as e:

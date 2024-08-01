@@ -14,13 +14,13 @@ const MainPage = () => {
     };
 
     const [state, setState] = useState(initialState);
+    const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8888";
 
     const resetState = () => {
         setState(initialState);
     };
 
     const handleSubmitProfile = (profile) => {
-        const API_URL = "http://localhost:8888";
         const comparePayload = {
             'query': {
                 'description': profile,
@@ -44,7 +44,6 @@ const MainPage = () => {
     };
 
     const handleAnalyzeJobs = () => {
-        const API_URL = "http://localhost:8888";
         const comparePayload = {
             'user_info': state.userProfile,
             'similar_job_description': state.jobListings.hits

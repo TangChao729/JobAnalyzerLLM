@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify, Response
 from flask_restful import Api, Resource
 from flask_cors import CORS
@@ -7,8 +8,8 @@ import json
 
 # Initialize the Marqo agent
 print("Initializing Marqo agent")
-DATABASE_PORT = 'http://192.168.31.45:8882'
-DATABASE_INDEX = 'kaggle_job_listing'
+DATABASE_PORT = os.getenv('DATABASE_PORT', 'http://localhost:8882')
+DATABASE_INDEX = os.getenv('DATABASE_INDEX', 'kaggle_job_listing')
 marqoAgent = MarqoAgent(url=DATABASE_PORT, index=DATABASE_INDEX)
 print("Marqo agent initialized")
 
@@ -30,10 +31,7 @@ print("Flask app initialized")
 # TODO: Print out system stats
 print("Waiting for requests...")
 
-''' Search endpoint.
-Input: JSON object with a query field containing a description of the job listing.
-Output: JSON object with the search results.
-'''
+# Search endpoint.
 class Search(Resource):
     def post(self):
         # Get the query from the request
@@ -46,10 +44,7 @@ class Search(Resource):
         except Exception as e:
             return Response(json.dumps({"error": str(e)}), status=500, mimetype='application/json')
 
-''' Compare endpoint.
-Input: JSON object with user_info and similar_job_description fields.
-Output: JSON object with the response from the GPT agent.
-'''
+# Compare endpoint.
 class Compare(Resource):
     def post(self):
         # Get the user_info and similar_job_description from the request
