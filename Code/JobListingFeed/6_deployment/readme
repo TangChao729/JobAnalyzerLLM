@@ -1,0 +1,28 @@
+deployment start from setting up virtual environment on Azure (or any other platform).
+
+In example of Azure:
+1) Setup account, subscription, resource group, etc.
+2) Create a virtual machine resource, choose the OS (ubuntu), and resource size.
+3) Setting up network, open port 80, 443, 22, additional port for backend if needed.
+4) Download the private key, chmod 400 the private key.
+'''chmod 400 <private_key>'''
+5) SSH to the virtual machine, install docker and docker-compose.
+6) Add user to docker group. 
+'''sudo usermod -aG docker $USER'''
+'''newgrp docker'''
+7) (optional) SCP docker yaml file to the virtual machine.
+
+A example of docker yaml file:
+```
+version: '3'
+services:
+  database:
+    image: marqoai/marqo:latest
+    ports:
+      - "8882:8882"
+
+  backend:
+    image:
+After that, up services using docker-compose.
+
+

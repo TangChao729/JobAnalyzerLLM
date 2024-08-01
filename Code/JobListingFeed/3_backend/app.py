@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, Response
+from flask import Flask, request, jsonify, Response
 from flask_restful import Api, Resource
 from flask_cors import CORS
 from marqo_agent import MarqoAgent
@@ -20,7 +20,10 @@ print("GPT agent initialized")
 # Initialize the Flask app
 print("Initializing Flask app")
 app = Flask(__name__)
-CORS(app)
+
+# Enable CORS for the Flask app
+CORS(app, resources={r"/*": {"origins": "*"}})
+
 api = Api(app)
 print("Flask app initialized")
 
@@ -36,8 +39,6 @@ class Search(Resource):
         # Get the query from the request
         description = request.get_json().get('query').get('description')
 
-        # print("--debugging: description ", type(description), description)
-
         # Perform search on Marqo index
         try:
             search_results = marqoAgent.search(query=description)
@@ -52,14 +53,6 @@ Output: JSON object with the response from the GPT agent.
 class Compare(Resource):
     def post(self):
         # Get the user_info and similar_job_description from the request
-
-        # debugging the request
-        # print("--debugging: request received")
-        # print("--debugging: user_info", type(request.get_json()), request.get_json().keys())
-        # print("--debugging: user_info", len(request.get_json().get('user_info')))
-        # print("--debugging: user_info", request.get_json().get('user_info')[:100])
-        # print("--debugging: similar_job_description", len(request.get_json().get('similar_job_description')))
-        # print("--debugging: similar_job_description", request.get_json().get('similar_job_description')[:100])
         user_info = request.get_json().get('user_info')
         similar_job_description = request.get_json().get('similar_job_description')
 
@@ -70,7 +63,7 @@ class Compare(Resource):
         except Exception as e:
             return jsonify({"error": str(e)})
 
-# Add the search endpoint to the API
+# Add the search and compare endpoints to the API
 api.add_resource(Search, '/search')
 api.add_resource(Compare, '/compare')
 

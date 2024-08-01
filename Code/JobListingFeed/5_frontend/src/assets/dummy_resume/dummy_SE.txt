@@ -1,0 +1,44 @@
+Software engineer with expertise in deep learning and cloud technologies. Graduate from the University of Melbourne with a master’s degree in IT and an outstanding academic records. Skilled in research and development in the cutting-edge AI models, especially in computer vision. Experienced in implementing AI solutions from major providers into existing software. Recognized for keen problem-solving skills and can-do attitude.
+
+Vision HQ                                                                                                                                    Brisbane, QLD
+SOFTWARE ENGINEER INTERN                                                                              Dec 2022 – Dec 2023
+Developed and CI/CD deep learning models to solve specific business tasks.
+Processed in-house data and construct optimized data pipelines to feed ML models.
+Collaborated with software engineers on production systems and applications.
+
+Generative AI job analyzing and matching system                               Feb 2024 – May 2024
+#Large Language Model #Natural Language Processing
+Leading the prototyping of a Gen-AI tool designed to provide job seekers with insights of demanding qualifications on individual resume.
+Integrating GPT API and retrieval-augmented generation to use most up-to-date data.
+
+Targeted billboard advertising system                                                    Jan 2024 – Mar 2024
+#Machine Learning #Computer Vision
+Developed an XGBoost ML model to predict ad effectiveness using real-time demographic data from digital billboard footage.
+Retrieved attributes from video footage data into tabular data for enhanced analytics and model training.
+Integrated computer vision (Azure Cognition) techniques to analyze crowd compositions.
+
+Computer vision road monitoring system 		                         Jan 2023 – Dec 2023
+#Computer Vision #Cloud Computing
+Finetuned open-source computer vision models using in-house dataset, to provide tailored solution of road safety applications for smarter road management solutions.
+Orchestrated the design, development, and testing of workflows optimized for cloud.
+Implemented a seamless model pipeline on Google Cloud Platform, encompassing the entire spectrum from data ingestion to delivering actionable insights.
+
+Research project for national bushfire satellite images                       Aug 2023 – Nov 2023
+#Image Segmentation #Pattern Recognition
+Led the evaluation of advanced CV models on satellite bushfire imagery analysis, to aid bushfire emergency planning in semi-real time.
+Modified a ViT model to process multi-spectral imagery, resulting in 88% F1-score.
+Research paper in-depth insights well received, under review for publication.
+
+Full-stack web app for residents' sentiment analysis.                           Feb 2023 – Jun 2024
+#Distributed and Parallel System #Natural Language Processing
+Led the web app development to facilitate the analysis of residents’ satisfaction.
+Construed frontend and backend services using React and Flask.
+Automated deployment and scaling by utilizing Docker Swarm and Ansible.
+
+University of Melbourne 					                                       Melbourne, VIC
+     Master of Information Technology (AI major)	                                            Jan 2022 – Nov 2023
+     WAM:                  83/100, Graduate with Distinction
+     Core Courses:     Natural Language Processing                Computer Vision
+			               Algorithm and Complexity                     Cluster and Cloud Computing
+     Awards:               Dean’s Honours List  2022  & 2023
+                                  Melbourne Graduate Scholarship 2022

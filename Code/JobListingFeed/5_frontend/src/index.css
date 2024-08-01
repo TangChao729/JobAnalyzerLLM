@@ -36,8 +36,8 @@ header {
 }
 
 header img {
-  width: 3rem;
-  height: 3rem;
+  width: 5rem;
+  height: 5rem;
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.6));
 }
 
@@ -80,13 +80,14 @@ header h1 {
 
 #quiz {
   max-width: 50rem;
-  margin: auto;
+  margin: 2rem auto;
   padding: 2rem;
   background: linear-gradient(180deg, #3e2a60 0%, #321061 100%);
   border-radius: 8px;
   /* box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.6); */
   box-shadow: 1px 1px 8px 4px rgba(12, 5, 32, 0.6);
   text-align: center;
+  
 }
 
 #question-overview {
@@ -333,4 +334,79 @@ header h1 {
     opacity: 1;
     transform: translateY(0);
   }
+}
+.job-listing {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.jobcard {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin: 8px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+  color: #333;
+}
+
+.jobcard h2, .jobcard p {
+  font-size: 14px;
+}
+
+.jobcard:hover {
+  transform: scale(1.05);
+}
+
+.modal {
+  width: 60%;
+  max-width: 800px;
+  height: 80%;
+  max-height: 600px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  background-color: white;
+  padding: 20px;
+}
+
+.modal-content h2 {
+  font-size: 18px;
+}
+
+.modal-content p {
+  font-size: 14px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+.submit-container {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.submit-container button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #6cb7f5;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-container button:hover {
+  background-color: #9d5af5;
 }

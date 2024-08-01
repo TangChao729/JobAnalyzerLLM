@@ -1,6 +1,7 @@
 **/.DS_Store
 Data/job_listing_kaggle_dataset/*
 Local_data/*
+Code/JobListingFeed/3_backend/credentials/*
 
 # Ignore node_modules
 node_modules
