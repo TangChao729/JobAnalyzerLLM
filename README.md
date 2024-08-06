@@ -3,45 +3,45 @@
 
 ## Description
 * <img src="JAL.png" alt="drawing" width="100"/>
-This project aims to provide a tool/service that provide a list of ideal job requirements/qualifications for a given job title. Some other features include:
-- Provide a list of skills that are most relevant to the job title
-- Comparing the job requirements/qualifications of two different job titles
-- Given a list of skills, provide a list of job titles that are most relevant to the skills
-- Analyze the given job title's career growth/path
+This project aims to provide a tool/service for job seekers:
+
+Given the job seekers' experience/skills, the tool will conduct a vector search on the job postings and find the most relevant job postings. Also, the tool will analyze the job postings and provide suggestions to help the job seekers to better prepare for the job application.
+
+We aim to solve a few user pain points:
+- Among the job postings, it is hard to the best match based on title search.
+- Requirements/qualifications are sometime vague and hard to understand.
+- Preparing of application materials is time-consuming and hard to tailor to the job postings.
+
+## User Stories
+1. As a job seeker looking for software engineer positions, I want to find the most relevant job postings based on my experience/skills, so that I can focus on the most relevant job postings. However, searching for "software engineer" on job sites returns a lot of irrelevant job postings, narrowing down to "front-end software engineer" is still not enough. If i add "React" to the search, I may miss some job postings that require React but not in the title.
+2. As a job seeker looking for software engineer positions, I am looking at a job posting that requires "Backend experience with Python". I do have experience with Python but not in the backend. I want to know should I apply for this job and what I need to prepare for the application. 
 
 ## High Level Design
 ![High Level Design](Job%20Analyser.png)
 
-
 ## Key Components
-* Guided User Input: User input but limited to a set of options, i.e. job title, skills, etc. This can be replaced by another LLM that can refine the user input.
-  > * Web UI
-  > * Input: Limit the user input to a set of options, with words limit, etc.
-  > * Output: JSON object that contains the user input.
+* Front-end: Web UI
+  > * Guide the user to input their experience/skills.
+  > * Display the most relevant job postings.
+  > * Display the job posting analysis.
 
-* Prompt Generator: Prompt templates. 
-  > * TXT file
+* Database: Marqo Vector Database
+  > * Store the job postings.
+  > * Index the job postings' description for search.
 
-* Refined Prompt: Prompt templated filled with user input.
-  > * Input: JSON object that contains the user input, and prompt template.
-  > * Output: A long string that contains the user input.
+* Back-end: RESTful API
+  > * Handle the user input.
+  > * Call the job posting API to fetch & update job postings.
+  > * Call the database to search for the most relevant job postings.
+  > * Call the LLM API to analyze the job postings.
+  > * Return the results to the front-end.
 
-* Web-crawler: Crawl job postings from job sites based on the user input.
-  > * A web crawler that use several job sites as data sources.
-  > * Input: Job title, location, etc.
-  > * Output: A list of job postings.
+* Web-crawler: Crawl job postings from job sites periodically.
+  > * Crawl job postings from job sites.
+  > * Update the job postings in the database.
 
-* Matching classifier: Classify the job postings based on the user input.
-  > * A binary classifier that can classify the job postings based on the user input.
-  > * Input: A list of job postings, user input job title
-  > * Output: A list of job postings that are relevant to the user input.
+* LLM API: Configurable LLM model and API
+  > * Using OpenAI API along with fetched job postings to analyze the job postings.
+  > * Or train a custom LLM model with the job postings. Currently exploring the feasibility with LLaMa 3.
 
-* Fetched Job Ads: A list of job ads that are relevant to the user input.
-  > * A list of job postings that are relevant to the user input.
-
-* JAL: Job Analyzer LLM takes the refined prompt and fetched job ads as input and output a list of job requirements/qualifications.
-  > * A fine-tuned LLaMa 7b model that takes the refined prompt and fetched job ads as input and output a list of job requirements/qualifications.
-
-* RAG & Cached DB: Additional data sources that can be used to further refine the job requirements/qualifications, and store the results for future use. For example, data drilling down to the job requirements/qualifications of a specific company.
-  > * Additional features to be further explored.
 
