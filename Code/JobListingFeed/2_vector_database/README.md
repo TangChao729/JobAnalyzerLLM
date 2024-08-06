@@ -12,7 +12,7 @@
    4) configure docker
    5) add user to docker group
 
-2. Create docker storage volume for the database:
+2. Create docker storage volume for the database (optional, if you want to save the data into specific location):
    '''
    docker volume create marqo_data
    '''
@@ -24,7 +24,7 @@
    After service running, you should see prompt message indicate service is running.
 
 
-4. Check container status:
+4. Check container if using GPU:
    '''
    docker ps
    sudo docker exec -it {CONTAINERID} /bin/bash
@@ -32,13 +32,14 @@
    '''
    If using GPU, you should see the GPU information.
 
-5. To access the database, use your choice of SDK
+# To access the database, you need:
+1. To access the database, use your choice of SDK
     - Python SDK:
     
     pip install marqo
     '''
 
-6. Sample code
+2. Sample code
    '''
    import marqo
 
@@ -65,7 +66,7 @@
     )
     '''
 
-    sample result:
+3. Sample result:
     '''
     {'hits': [{'Title': 'Extravehicular Mobility Unit (EMU)',
    'Description': 'The EMU is a spacesuit that provides environmental protection, mobility, life support, and communications for astronauts',
