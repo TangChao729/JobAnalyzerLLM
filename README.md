@@ -17,7 +17,7 @@ We aim to solve a few user pain points:
 2. As a job seeker looking for software engineer positions, I am looking at a job posting that requires "Backend experience with Python". I do have experience with Python but not in the backend. I want to know should I apply for this job and what I need to prepare for the application. 
 
 ## High Level Design
-![High Level Design](Job%20Analyser.png)
+![High Level Design](framework.png)
 
 ## Key Components
 * Front-end: Web UI
