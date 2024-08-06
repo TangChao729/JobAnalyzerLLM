@@ -1,1 +1,1 @@
-# currently not in use, due to legal reasons
+# currently not in use, due to legal reasons. Exploring the possibility of using other job listing APIs.
