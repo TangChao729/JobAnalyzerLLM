@@ -8,8 +8,10 @@ import json
 
 # Initialize the Marqo agent
 print("Initializing Marqo agent")
-DATABASE_PORT = os.getenv('DATABASE_PORT', 'http://localhost:8882')
-DATABASE_INDEX = os.getenv('DATABASE_INDEX', 'kaggle_job_listing')
+# DATABASE_PORT = os.getenv('DATABASE_PORT', 'http://192.168.31.45:8882')
+# DATABASE_INDEX = os.getenv('DATABASE_INDEX', 'kaggle_job_listing')
+DATABASE_PORT = 'http://144.134.10.154:8882'
+DATABASE_INDEX = 'kaggle_job_listing'
 marqoAgent = MarqoAgent(url=DATABASE_PORT, index=DATABASE_INDEX)
 print("Marqo agent initialized")
 

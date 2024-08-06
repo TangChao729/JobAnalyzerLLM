@@ -14,7 +14,8 @@ const MainPage = () => {
     };
 
     const [state, setState] = useState(initialState);
-    const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8888";
+    // const API_URL = process.env.REACT_APP_API_URL || "http://192.168.31.45:8888";
+    const API_URL = "http://144.134.10.154:8888";
 
     const resetState = () => {
         setState(initialState);
