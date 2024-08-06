@@ -1,21 +1,3 @@
-great.
+## Frontend Readme
 
-okay. now lets initial the frontend
-
-i plan to have just one page for this app, it will have several sections:
-1. Header (with logo)
-2. Navigation (only has one button, "New Job")
-3. User profile input (it first give two buttons, "Manual" and "Upload"
-if user click "Manual", it will show a form to input user profile
-if user click "Upload", it will show a window for user to select a file from a list of file
-after user input is done, there is a button "Submit" to submit the user profile, when clicked, it will send a request to the backend)
-4. Job listing (after retrieving the job listing, it will show a row (rows) of job listing card, with each card has the job titile, company name)
-   (upon clicking the card, it will show a modal with more detail of the job listing, when click anywhere outside the modal, it will close the modal)
-   (there is a select button on top-right of each card)
-   (there is a button "analyze" at the bottom of the job listing, when clicked it will send another reqeust to the backend to analyze the job listing)
-5. Job analyze (after the job listing is analyzed, it will show the result of the analysis.)
-6. Footer and credit (to Taylor Tang, myself)
-
-before we moving on the the actual code, lets create the folder structure first.
-name all the components.jsx needed for this app.
-i will give your further instruction after you finish this task.
+Built with React. This simple frontend application displays a list of job listings. 

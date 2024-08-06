@@ -44,4 +44,9 @@ We aim to solve a few user pain points:
   > * Using OpenAI API along with fetched job postings to analyze the job postings.
   > * Or train a custom LLM model with the job postings. Currently exploring the feasibility with LLaMa 3.
 
+## DISCLAIMER:
+
+The initial version of this project is rely on a job listing dataset that is provided by kaggle.com(https://www.kaggle.com/datasets/arshkon/linkedin-job-postings). The dataset is a collection of job listings from LinkedIn. The dataset is not complete and is not up-to-date. The dataset is used for the purpose of testing the project. The dataset is not used for commercial purpose.
+
+
 

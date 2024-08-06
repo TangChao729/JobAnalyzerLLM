@@ -1,6 +1,4 @@
-## With marqo database setup, we are ready to search through the job listings.
-
-### backend workflow
+## backend workflow
 
 1. Client sends a search request to the server.
    (data type: json object, example: {"title": "software engineer", "location": "san francisco", "resume": "I am a software engineer with 5 years of experience in python and java."})
@@ -17,7 +15,7 @@
 5. Server receives the response and sends it back to the client.
    (data type: )
 
-### backend code structure
+## backend code structure
 
 1. `app.py`: main file for the backend server.
 2. `marqo_agent.py`: handling marqo database query.
